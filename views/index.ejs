@@ -1,0 +1,267 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html ng-app="tunaApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Bakanal - Chicas Lindas y Emprendedoras </title>
+    <script data-semver="1.2.4" src="assets/home/js/angular.js" data-require="angular.js@1.2.x"></script>
+    <script src="assets/home/js/angular-ui-router.js"></script>
+    <link rel="stylesheet" href="assets/home/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/home/css/bootstrap-theme.min.css">
+    <script src="assets/home/js/jquery.min.js"></script>
+    <script src="assets/home/js/bootstrap.min.js"></script>
+    <script src="controller/bacanal.js"></script>
+    
+            <link rel="stylesheet" href="assets/css/index.css">
+            <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700'>
+    <link href="assets/view/css/portfolio-item.css" rel="stylesheet">
+
+
+
+</head>
+  <body ng-controller="MainCtrl" ng-init = "init()">
+   
+      <!-- Navigation -->
+    <nav class="navbar navbar-inverse header navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header ">
+                <button type="button" class="navbar-toggle custom" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only ">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                <div class="logo ">
+                        <h1><a href="/"><span style="color:black">Ba</span><span class="red">k</span>anal <span class="red">.</span></a></h1>
+                    </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div  class=" custom collapse navbar-collapse pull-right "  id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/login">Ingresar</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!--div class="col-md-3">
+                <p class="lead">Shop Name</p>
+                <div class="list-group">
+                    <a href="#" class="list-group-item">Category 1</a>
+                    <a href="#" class="list-group-item">Category 2</a>
+                    <a href="#" class="list-group-item">Category 3</a>
+                </div>
+            </div-->
+
+            <!--div class="col-md-3">
+                <p class="lead">Precio</p>
+                <div class="list-group">
+                    <label> <input type = "radio" value = "1" ng-model="searchPrice"> Hasta $20.000</label><br>
+                    <label> <input type = "radio" value = "2" ng-model="searchPrice"> $20.000 a $30.000</label><br>
+                    <label> <input type = "radio" value = "3" ng-model="searchPrice"> $30.000 a $40.000</label><br>
+                    <label> <input type = "radio" value = "4" ng-model="searchPrice"> $40.000 a $50.000</label><br>
+                    <label><input type = "radio" value = "5" ng-model="searchPrice"> Desde $50.000</label><br>
+                    <label><input type = "radio" value = "6" ng-model="searchPrice"> Todas</label><br>
+
+                    
+                </div>
+                <p class="lead">Edad</p>
+                <div class="list-group">
+                    <label><input type = "radio" value = "1" ng-model="searchAge"> Hasta 20 Años </label><br>
+                    <label><input type = "radio" value = "2" ng-model="searchAge"> 20 - 25</label><br>
+                    <label><input type = "radio" value = "3" ng-model="searchAge"> 25 - 30</label><br>
+                    <label><input type = "radio" value = "4" ng-model="searchAge"> 30 - 35</label><br>
+                    <label><input type = "radio" value = "5" ng-model="searchAge"> Sobre 35 Años </label><br>
+                    <label><input type = "radio" value = "6" ng-model="searchAge" > Todas</label>                     
+                </div>
+
+                <div class="list-group">
+                <p class="lead">Sector</p>
+                <select name="selected" id="selected" ng-model="searchSector" class="customSelect">
+                    <option ng-repeat="option in sector.availableOpcions" value="{{option}}">
+                        {{option}}
+                    </option>
+                </select>
+                </div>
+
+                <button ng-click="buscar()" type="button" class="customBtn">Buscar</button>
+                
+                 
+            </div-->
+            
+            <div class="col-md-12">
+
+                <div class="row carousel-holder">
+
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <!--ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol-->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img class="slide-image" src="assets/home/images/flyer.png" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="assets/home/images/flyer2.png" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="assets/home/images/flyer3.png" alt="">
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class = "row ">
+                    <div class = "filter">
+                        
+                        <div class = "col-md-3">
+                            <label for="selectedAge">Edad</label>
+                            <select name="selectedAge" id="selectedAge" ng-model="searchAge" class="customSelect">
+                                <option ng-repeat="option in edad.availableOpcions" value="{{option.id}}" ng-selected = "{{option.id == 6}}">
+                                    {{option.value}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class = "col-md-3">
+                            <label for="selectedPrice">Valor</label>
+                            <select name="selectedPrice" id="selectedPrice" ng-model="searchPrice" class="customSelect">
+                                <option ng-repeat="option in precio.availableOpcions" value="{{option.id}}" ng-selected = "{{option.id == 6}}">
+                                    {{option.value}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class = "col-md-3">
+                            <label for="selectedSector">Sector</label>
+                            <select name="selectedSector" id="selectedSector" ng-model="searchSector" class="customSelect">
+                                <option ng-repeat="option in sector.availableOpcions" value="{{option}}" ng-selected = "{{option == 'Todas'}}">
+                                    {{option}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class = "col-md-3">
+                             <button ng-click="buscar()" type="button" class="customBtn">Buscar</button>
+                        </div>
+                   </div>
+                </div>
+
+
+                <div class="row ">
+
+
+
+                    <div ng-repeat = "item in provider" class="col-sm-3 col-lg-3 col-md-3">
+                        <div class="thumbnail">
+                            <img ng-src="{{item.foto}}" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">{{formatPrice(item.precio)}}</h4>
+                                <h4><a href="view?key={{item.key}}">{{item.nombre}}</a>
+                                </h4>
+                                <p><strong>Edad: </strong> {{item.edad}} años</p>
+                                <p><strong>Medidas: </strong> {{item.medidas}}</p>
+                                <p><strong>Sector: </strong>{{item.sector}}</p>
+                            </div>
+                            <!--div class="ratings">
+                                <p class="pull-right">15 reviews</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div-->
+                        </div>
+                    </div>
+
+            
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <h3 class="page-header">Publicidad</h3>
+                    </div>
+
+                    <div class="col-sm-3 col-xs-6">
+                        <a href="#">
+                            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-sm-3 col-xs-6">
+                        <a href="#">
+                            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-sm-3 col-xs-6">
+                        <a href="#">
+                            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-sm-3 col-xs-6">
+                        <a href="#">
+                            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                        </a>
+                    </div>
+
+                </div>
+        <!-- /.row -->
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Derechos Reservados bakanal.cl. 2016. bakanaliza@gmail.com +56 9 49338330</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+    
+</body>
+</html>

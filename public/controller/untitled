@@ -1,0 +1,35 @@
+
+var app = angular.module('bacanalApp', []);
+
+
+app.controller('RegisterCtrl', function($scope,$http,$location) {
+
+  
+    $scope.key = getParameterByName("key","");
+    //debugger;
+    function getParameterByName(name, url) {
+       // debugger;
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    $scope.getProviderData = function(){
+
+
+        $http({
+            method: 'GET',
+            url: '/api/provider/'+ $scope.key,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).success(function (data) {console.log(data)});   
+    }
+
+
+
+}]);

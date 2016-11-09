@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html ng-app="bacanalApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bakanal. Chicas Lindas y Emprendedoras</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/view/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+            <link rel="stylesheet" href="assets/css/style.css">
+            <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.css">
+            <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700'>
+    <link href="assets/view/css/portfolio-item.css" rel="stylesheet">
+
+        <script data-semver="1.2.4" src="assets/angular.min.js" data-require="angular.js@1.2.x"></script>
+        <script type="text/javascript" src="assets/ng-file-upload/dist/ng-file-upload.min.js"></script>
+        <script type="text/javascript" src="assets/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+        <script src="assets/color-picker/tinycolor-min.js"></script>
+        <script src="assets/color-picker/angularjs-color-picker.js"></script>
+        <script src="controller/provider.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+  <body ng-controller="ProviderCtrl" ng-init="getProviderData()">
+
+    <!-- Navigation -->
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="logo span4">
+                    <h1><a href="/"><span style="color:black">Ba</span><span class="red">k</span>anal <span class="red">.</span></a></h1>
+                    <!--a ng-show = "logged" class= "pull-right" href="/edit?key={{provider.key}}" rel="tooltip" data-placement="bottom" data-original-title="Editar">Editar</a-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 style="    padding-bottom: 9px;margin: 35px 0 10px;">
+                    <div style="float:left;margin-right:10px;margin-bottom:10px;color:#dddddd"><strong>{{provider.nombre}}.</div>
+                    <div style="float:left"><small>{{provider.frase}}</small></div></strong>
+                    <div class =" pull-right">
+                        <div style="float:left;margin-right:10px;color:#dddddd"><medium>{{formatPrice(provider.precio)}}</medium></div>
+                        <div style="float:left"><small>+56 9 {{provider.telefono}} <img src= "assets/home/images/WhatsApp_Icon.png" height= "38"  width = "60"/></small>
+                        </div>
+                    </div>    
+                </h1>
+            </div>
+        </div>
+        <hr>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row carousel-holder">
+
+                
+
+                    <div class="col-md-8">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                             <div class="carousel-inner">
+                                 <div class="item" ng-repeat="item in provider.galeria" ng-class="{active : $first}">
+                                   <img ng-src="{{item}}"  class="slide-image"/>
+                                 </div>
+                             </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+            
+            
+            <div class="col-md-4">
+                <p>{{provider.mensaje}}</p>
+                <h3 style="color:#dddddd">Ficha</h3>
+                <ul>
+                    <li><strong>Edad: </strong> {{provider.edad}} Años</li>
+                    <li><strong>Medidas: </strong>{{provider.medidas}}</li>
+                    <li><strong>Estatura: </strong>{{provider.estatura}}</li>
+                    <li><strong>Peso: </strong>{{provider.peso}} Kgs</li>
+                </ul>
+                <h3 style="color:#dddddd">Servicios</h3>
+                <p>{{provider.servicios}}</p>
+                <h3 style="color:#dddddd">Atención</h3>
+                <p>{{provider.horario}}</p>
+                <h3 style="color:#dddddd">Sector</h3>
+                <p>{{provider.sector}}</p>
+                <h3 ng-show ="social" style="color:#dddddd">Redes Sociales</h3>
+                    <ul class="list-inline">
+                            <li>
+                                <a ng-show ="website" href="{{provider.website}}" class="btn-social btn-outline"><i class="fa fa-fw fa-home " title = "Website "></i></a>
+                            </li>
+                            <li>
+                                <a ng-show ="facebook" href="{{provider.facebook}}" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook" title = "Facebook "></i></a>
+                            </li>
+                            <li>
+                                <a ng-show ="instagram" href="{{provider.instagram}}" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram" title = "Instagram "></i></a>
+                            </li>
+                            <li>
+                                <a ng-show ="twitter" href="{{provider.twitter}}" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter" title = "Twitter "></i></a>
+                            </li>
+                        </ul>
+
+            </div>
+
+        </div>
+
+        
+
+        <!-- /.row -->
+
+        <!-- Related Projects Row -->
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header">Publicidad</h3>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Derechos Reservados bakanal.cl. 2016. bakanaliza@gmail.com +56 9 49338330</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="assets/view/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/view/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/autocomplete/script/autocomplete.js"></script>
+
+</body>
+
+</html>

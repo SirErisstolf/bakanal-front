@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!--html ng-app="bacanalApp">
+<head>
+    <title>Formulario de Registro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+
+      <script data-semver="1.2.4" src="assets/js/angular/angular.js" data-require="angular.js@1.2.x"></script>
+        <script src="controller/provider.js"></script>
+</head>
+<body ng-controller="ProviderCtrl" ng-init="getProviderData()">
+{{test}}
+{{provider.user}}
+
+</body>
+</html-->
+
+
+<!DOCTYPE html>
+<html ng-app="bacanalApp">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>Bakanal - Chicas Lindas y Emprendedoras</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- CSS -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700'>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/color-picker/angularjs-color-picker.min.css" />
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/autocomplete/style/autocomplete.css">
+
+
+        <script data-semver="1.2.4" src="assets/angular.min.js" data-require="angular.js@1.2.x"></script>
+        <script type="text/javascript" src="assets/ng-file-upload/dist/ng-file-upload.min.js"></script>
+		<script type="text/javascript" src="assets/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+		<script src="assets/color-picker/tinycolor-min.js"></script>
+    	<script src="assets/color-picker/angularjs-color-picker.js"></script>
+        <script src="controller/provider.js"></script>
+
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body ng-controller="ProviderCtrl" ng-init="getProviderData()">
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="logo span4">
+                        <h1><span style="color:black">Ba</span><span class="red">k</span></a>anal <span class="red">.</span></a></h1>
+                    </div>
+                    <!--div class="links span8">
+                        <a class="home" href="" rel="tooltip" data-placement="bottom" data-original-title="Home"></a>
+                        <a class="blog" href="" rel="tooltip" data-placement="bottom" data-original-title="Blog"></a>
+                    </div-->
+                </div>
+            </div>
+        </div>
+
+        <div class="register-container container">
+            <div class = "row">
+                    <div class = " register span12">
+                        <form ng-submit="submit()">
+                            <button type="submit">GUARDAR</button>  
+                        </form>
+                    </div>
+            </div>  
+            <div class="row">
+                <div class="register span6">
+                    <form >
+                        <h2>Datos <span class="red"><strong>personales</strong></span></h2>
+                        <p>Completa los siguientes campos personales:</p>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre artistico" ng-model="provider.nombre">
+                        <label for="nombre">Frase</label>
+                        <input type="text" id="frase" name="frase" placeholder="Tu slogan. Ej. La mas Sexy" ng-model="provider.frase">
+                        <label for="edad">Edad</label>
+                        <input type="text" id="edad" name="edad" placeholder="Tu edad. Ej: 24 " ng-model="provider.edad">
+                        <label for="estatura">Estatura</label>
+                        <input type="text" id="estatura" name="estatura" placeholder="Tu estatura. Ej: 1.65" ng-model="provider.estatura">
+                        <label for="peso">Peso</label>
+                        <input type="text" id="peso" name="peso" placeholder="Tu peso. Ej. 54 Kg" ng-model="provider.peso">
+                        <label for="medidas">Medidas</label>
+                        <input type="text" id="medidas" name="medidas" placeholder="Tus medidas Ej. 90-60-90" ng-model="provider.medidas">                        		                    	
+                    </form>
+                </div>
+                <div class="register span6">
+                    <form>
+                        <h2>Datos <span class="red"><strong>comerciales</strong></span></h2>
+                        <p>Completa los siguientes campos comerciales:</p>
+                        <label for="precio">Precio</label>
+                        <input type="text" id="precio" name="precio" placeholder="Ej. 50000" ng-model="provider.precio">
+                        <label for="horario">Horario</label>
+                        <input type="text" id="horario" name="horario" placeholder="Ej. Todo el dia. 14:00 - 23:00" ng-model="provider.horario">
+						<label for="sector">Sector</label>
+                        <autocomplete ng-model="provider.sector" attr-placeholder="Selecciona o Ingresa sector. Ej. Santiago Centro" click-activation="true" data="movies" on-type="doSomething" on-select="doSomethingElse"></autocomplete>
+                        <label for="servicios">Servicios</label>
+                        <input type="text" id="servicios" name="servicios" placeholder="Ej. Normales, parejas, mujeres, americana" ng-model="provider.servicios">
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" id="telefono" name="telefono" placeholder="Ej. 87654321" ng-model="provider.telefono">
+                        <label for="telefono">TV?</label>
+                        <input type="checkbox" id="tv" name="tv" ng-model="provider.tv">
+					</form>
+                </div>
+            </div>
+            <div class = "row">
+                <!--div class="register span6">
+                    
+                    <form  ng-controller="ProviderCtrl as up" name="up.upload_form">
+                        <h2> Colores de la <span class="red"><strong>página</strong></span></h2>
+
+                        <div class="section">
+                        <h3>Colores de la Página</h3>
+
+                        <div class="subsection">
+                            <h4>Color de Fondo Secciones</h4>
+                            <color-picker ng-model="bgColorSection" color-picker-format='hex'></color-picker>
+                            <input type="text" ng-model="bgColorSection" ng-init="bgColorSection = bgColorSection">
+                        </div>
+                        <div class="subsection">
+                            <h4>Color Textos</h4>
+                            <color-picker ng-model="textColor"></color-picker>
+                            <input type="text" ng-model="textColor" ng-init="textColor = textColor">
+                        </div>
+
+                        <div class="subsection">
+                            <h4>Preview</h4>
+
+                            <div ng-style="{'background-color': bgColorPage, 'height':'260px' ,'text-align':'center','padding-left':'15px','padding-right':'15px','padding-top':'1px','margin-top':'5px;'}">
+                                <div ng-style="{'background-color': bgColorSection ,color: textColor , 'height':'220','padding-top':'1px','padding-left':'5px','margin-top':'15px',    'border-style': 'dotted','border-width': '1px'}">
+                                    <h3>Titulo</h3>
+
+                                    <p>Este es el contenido a mostrar en la pagina. Trata de buscar buenas combinaciones para hacer
+                                        tu pagina atractiva pero tambien facil de leer, recuerda que tu pagina también será vista
+                                        desde celulares.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+
+
+                        
+                    </form>
+
+
+                </div-->
+                <div class="register span6">
+                    
+                    <form  ng-controller="ProviderCtrl as up" name="up.upload_form">
+                        <h2> Redes <span class="red"><strong>Sociales</strong></span></h2>
+                        <p>Copia y pega las direcciones de tus redes sociales. Asegurate de usar la direccion completa comenzando con http://</p>
+
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="website" placeholder="Ej: 'http://www.misitio.cl'" ng-model="provider.website">
+                        <label for="facebook">Facebook</label>
+                        <input type="text" id="facebook" name="facebook" placeholder="Ej: 'http://facebook.com/my.cuenta'" ng-model="provider.facebook">
+                        <label for="twitter">Twitter</label>
+                        <input type="text" id="twitter" name="twitter" placeholder=" Ej: 'http://twitter.com/MyCuenta'" ng-model="provider.twitter">
+                        <label for="instagram">Instagram</label>
+                        <input type="text" id="instagram" name="instagram" placeholder=" Ej: 'http://instagram.com/my.cuenta'" ng-model="provider.instagram">
+
+                        
+                    </form>
+
+
+                </div>      
+        
+                <div class="register span6">
+                    <form>
+                        <h2>Mensaje  <span class="red"><strong>bienvenida</strong></span></h2>
+                        <label for="mensaje"></label>
+                        <p>Deja un mensaje de bienvenida que atraiga a tus clientes</p>
+
+
+                        <textarea name="mensaje" data-ng-model="provider.mensaje" id="content" cols="100" rows="17"
+                              placeholder="Ingresa aquí tu texto" class="form-control" ></textarea>
+
+                    </form>
+                </div>      
+            </div>  
+            <div class = "row">
+            	<div class="register span6">
+                    
+			        <form  ng-controller="ProviderCtrl as up" name="up.upload_form">
+			            <h2>Foto de <span class="red"><strong>portada</strong></span></h2>
+                        <p> Presiona donde dice "Seleccionar Archivo" para elegir la foto que aparecerá en el buscador de bakanal.cl, luego haz click en el botón "Subir/cambiar Foto"</p>
+			            <input 
+			                type="file" 
+			                ngf-select 
+			                ng-model="up.file" 
+			                name="file" 
+			                ngf-pattern="'image/*'"
+			                accept="image/*" 
+			                ngf-max-size="20MB" 
+			                />
+			            <img ng-src="{{provider.foto}}" height="100"/>
+			            <i ng-show="up.upload_form.file.$error.required">*required</i><br>
+			            <i ng-show="up.upload_form.file.$error.maxSize">File too large 
+			            {{up.file.size / 1000000|number:1}}MB: max 20M</i>
+			           <!--  Multiple files
+			            <div class="button" ngf-select ng-model="up.files" ngf-multiple="true">Select</div>
+			            Drop files: <div ngf-drop ng-model="up.files" class="drop-box">Drop</div> -->
+			            <button type="submit" ng-click="up.submitProfile()">Subir/Cambiar Foto</button>
+			            <p>{{up.progress}}</p>
+			        </form>
+
+
+                </div>    	
+                <div class="register span6">
+                    
+			        <form  ng-controller="ProviderCtrl as up" name="up.upload_form">
+			            <h2>Galeria de <span class="red"><strong>fotos</strong></span></h2>
+                        <p> Presiona donde dice "Seleccionar Archivo" para elegir fotos que apareceran en tu galeria, luego haz click en el botón "Subir Foto". Si no te gustó, puedes eliminarla con el boton "remover". Puedes repetir este proceso las veces que quieras.</p>
+			            <input 
+			                type="file" 
+			                ngf-select 
+			                ng-model="up.file" 
+			                name="file" 
+			                ngf-pattern="'image/*'"
+			                accept="image/*" 
+			                ngf-max-size="20MB" 
+			                />
+			           
+			            <i ng-show="up.upload_form.file.$error.required">*required</i><br>
+			            <i ng-show="up.upload_form.file.$error.maxSize">File too large 
+			            {{up.file.size / 1000000|number:1}}MB: max 20M</i>
+			           <!--  Multiple files
+			            <div class="button" ngf-select ng-model="up.files" ngf-multiple="true">Select</div>
+			            Drop files: <div ngf-drop ng-model="up.files" class="drop-box">Drop</div> -->
+			            <button type="submit" ng-click="up.submitGallery()">Subir Foto</button>
+			            <p>{{up.progress}}</p>
+                        <div ng-repeat="item in provider.galeria">
+                            
+                            <div>
+                                <img ng-src="{{item}}" height="100"/>
+                            </div>
+                            <div> 
+                                 <button ng-click="removeImage($index)" type="button" class="customBtn">Remover</button   
+                            </div>    
+                         </div>   
+			        </form>
+
+
+                </div>  	
+            </div>	
+            <div class = "row ">
+            		<div class = " register span12">
+                		<form ng-submit="submit()">
+                			<button type="submit">GUARDAR</button>  
+                		</form>
+                	</div>
+	        </div>		
+
+
+
+
+        </div>
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.8.2.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        <script type="text/javascript" src="assets/autocomplete/script/autocomplete.js"></script>
+
+    </body>
+
+</html>
+

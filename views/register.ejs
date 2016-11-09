@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html ng-app="bacanalApp">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>Bakanal - Chicas Lindas y Emprendedoras</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- CSS -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700'>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+
+        <script data-semver="1.2.4" src="assets/js/angular/angular.js" data-require="angular.js@1.2.x"></script>
+        <script src="controller/register.js"></script>
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body ng-controller="RegisterCtrl">
+
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="logo span4">
+                        <h1><a href="">Ba<span class="red">k</span></a>anal <span class="red">.</span></a></h1>
+                    </div>
+                    <!--div class="links span8">
+                        <a class="home" href="" rel="tooltip" data-placement="bottom" data-original-title="Home"></a>
+                        <a class="blog" href="" rel="tooltip" data-placement="bottom" data-original-title="Blog"></a>
+                    </div-->
+                </div>
+            </div>
+        </div>
+
+        <div class="register-container container">
+            <div class="row">
+                <div class="iphone span5">
+                    <img src="assets/img/iphone.png" alt="">
+                </div>
+                <div class="register span6">
+                    <form ng-submit="submit()">
+                        <h2>Registra <span class="red"><strong>tus datos</strong></span></h2>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Ingresa un nombre de usuario" ng-model="provider.username">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" placeholder="Ingresa tu email" ng-model="provider.email">
+                        <label for="pasword">Contraseña</label>
+                        <input type="password" id="password" name="password" placeholder="" ng-model="provider.password" class="input-xlarge">
+                        <label for="password_confirm">Confirmar Contraseña</label>
+                         <input type="password" id="password_confirm" name="password_confirm" ng-model="provider.password_confirm"placeholder="" class="input-xlarge">
+
+                        <button type="submit">REGISTRAR</button>                        
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.8.2.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+    </body>
+
+</html>
+
